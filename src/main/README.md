@@ -18,7 +18,7 @@ Content-Type: application/json
 {
   "username": "홍길동",
   "email": "test@example.com",
-  "password": "password123!"
+  "password": "12345678"
 }
 ```
 
@@ -51,7 +51,7 @@ Content-Type: application/json
 ```
 {
   "email": "test@example.com",
-  "password": "password123!"
+  "password": "12345678"
 }
 ```
 
