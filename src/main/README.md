@@ -178,7 +178,7 @@ Content-Type: application/json
 | Column    | Type         | Key | Constraint     | Description    |
 |-----------|--------------|-----|----------------|----------------|
 | id        | BIGINT       | PK  | AUTO_INCREMENT | 일정 고유 식별자      |
-| user_id   | VARCHAR      |     | NOT NULL       | 작성자 유저 ID      |
+| user_id   | VARCHAR      | FK  | NOT NULL       | 작성자 유저 ID      |
 | title     | VARCHAR(10)  |     | NOT NULL       | 일정 제목 (최대 10자) |
 | content   | VARCHAR(255) |     | NOT NULL       | 일정 내용          |
 | createdAt | DATETIME     |     | NOT NULL       | 생성일            |
@@ -189,8 +189,8 @@ Content-Type: application/json
 | Column      | Type         | Key | Constraint     | Description |
 |-------------|--------------|-----|----------------|-------------|
 | id          | BIGINT       | PK  | AUTO_INCREMENT | 댓글 고유 식별자   |
-| user_id     | BIGINT       |     | NOT NULL       | 작성자 유저 ID   |
-| schedule_id | BIGINT       |     | NOT NULL       | 연관된 일정 ID   |
+| user_id     | BIGINT       | FK  | NOT NULL       | 작성자 유저 ID   |
+| schedule_id | BIGINT       | FK  | NOT NULL       | 연관된 일정 ID   |
 | content     | VARCHAR(255) |     | NOT NULL       | 댓글 내용       |
 | createdAt   | DATETIME     |     | NOT NULL       | 생성일         |
 | updatedAt   | DATETIME     |     | NOT NULL       | 수정일         |
