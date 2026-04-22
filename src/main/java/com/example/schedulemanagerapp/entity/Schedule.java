@@ -2,9 +2,14 @@ package com.example.schedulemanagerapp.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "schedules")
 public class Schedule extends BaseEntity{
 
@@ -22,11 +27,18 @@ public class Schedule extends BaseEntity{
     @JoinColumn(name = "user_id", nullable = false)
     private User user; // 작성자 유저 정보
 
-    protected  Schedule() {}
+    // 댓글 개수 세기 위한 리스트
+    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 
     public Schedule(String title, String content, User user) {
         this.title = title;
         this.content = content;
         this.user = user;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
