@@ -489,13 +489,15 @@ public class ScheduleController {
 
 **ErrorResponseDto**
 GlobalExceptionHandler에서 사용할 Dto를 만들어줬다.
+
+처음에는 @RequiredArgsConstructor를 사용해줬다가 해결할 수 없다는 오류가 나타나 당황했지만 다른 ResponseDto와 다르게 생성자가 괄호 안 재료를 그대로 받아오기 때문이라는 것을 알고 지워줬다.
 ````
 import lombok.Getter;
 
 @Getter
 public class ErrorResponseDto {
-    private String error;
-    private String message;
+    private final String error;
+    private final String message;
 
     // 생성자
     public ErrorResponseDto(String error, String message) {
