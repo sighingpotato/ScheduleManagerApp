@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class ErrorResponseDto {
-    private String error;
-    private String message;
+    private final String error;
+    private final String message;
 
     // 생성자
     public ErrorResponseDto(String error, String message) {
